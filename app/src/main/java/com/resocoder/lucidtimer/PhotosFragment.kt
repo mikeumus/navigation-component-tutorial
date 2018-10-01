@@ -1,4 +1,4 @@
-package com.resocoder.navigationtut
+package com.mdm.lucidtimer
 
 
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.mdm.lucidtimer.PhotosFragmentArgs
 import kotlinx.android.synthetic.main.fragment_photos.*
 
 

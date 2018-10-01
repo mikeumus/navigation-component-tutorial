@@ -1,4 +1,4 @@
-package com.resocoder.navigationtut
+package com.mdm.lucidtimer
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.resocoder.navigationtut", appContext.packageName)
+        assertEquals("com.mdm.lucidtimer", appContext.packageName)
     }
 }

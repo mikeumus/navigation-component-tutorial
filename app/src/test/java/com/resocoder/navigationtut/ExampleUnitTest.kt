@@ -1,4 +1,4 @@
-package com.resocoder.navigationtut
+package com.mdm.lucidtimer
 
 import org.junit.Test
 
