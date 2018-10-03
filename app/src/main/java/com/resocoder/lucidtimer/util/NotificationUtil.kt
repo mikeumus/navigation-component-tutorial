@@ -15,7 +15,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.mdm.lucidtimer.AppConstants
 import com.mdm.lucidtimer.R
-import com.mdm.lucidtimer.HomeFragment
+import com.mdm.lucidtimer.MainActivity
 import com.mdm.lucidtimer.TimerNotificationActionReceiver
 import java.text.SimpleDateFormat
 import java.util.*
@@ -36,7 +36,7 @@ class NotificationUtil {
             val nBuilder = getBasicNotificationBuilder(context, CHANNEL_ID_TIMER, true)
             nBuilder.setContentTitle("Timer Expired!")
                     .setContentText("Start again?")
-                    .setContentIntent(getPendingIntentWithStack(context, HomeFragment::class.java))
+                    .setContentIntent(getPendingIntentWithStack(context, MainActivity::class.java))
                     .addAction(R.drawable.ic_play_arrow, "Start", startPendingIntent)
 
             val nManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -61,7 +61,7 @@ class NotificationUtil {
             val nBuilder = getBasicNotificationBuilder(context, CHANNEL_ID_TIMER, true)
             nBuilder.setContentTitle("Timer is Running.")
                     .setContentText("End: ${df.format(Date(wakeUpTime))}")
-                    .setContentIntent(getPendingIntentWithStack(context, HomeFragment::class.java))
+                    .setContentIntent(getPendingIntentWithStack(context, MainActivity::class.java))
                     .setOngoing(true)
                     .addAction(R.drawable.ic_stop, "Stop", stopPendingIntent)
                     .addAction(R.drawable.ic_pause, "Pause", pausePendingIntent)
@@ -81,7 +81,7 @@ class NotificationUtil {
             val nBuilder = getBasicNotificationBuilder(context, CHANNEL_ID_TIMER, true)
             nBuilder.setContentTitle("Timer is paused.")
                     .setContentText("Resume?")
-                    .setContentIntent(getPendingIntentWithStack(context, HomeFragment::class.java))
+                    .setContentIntent(getPendingIntentWithStack(context, MainActivity::class.java))
                     .setOngoing(true)
                     .addAction(R.drawable.ic_play_arrow, "Resume", resumePendingIntent)
 

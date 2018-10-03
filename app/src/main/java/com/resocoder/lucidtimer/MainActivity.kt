@@ -12,6 +12,7 @@ import android.view.MenuItem
 import com.mdm.lucidtimer.util.NotificationUtil
 import com.mdm.lucidtimer.util.PrefUtil
 import android.view.WindowManager
+import android.widget.Button
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         fun setAlarm(context: Context, nowSeconds: Long, secondsRemaining: Long): Long{
-            val wakeUpTime = (nowSeconds + secondsRemaining) * 1000
+            val wakeUpTime = (nowSeconds + secondsRemaining) * 333
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val intent = Intent(context, TimerExpiredReceiver::class.java)
             val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val nowSeconds: Long
-            get() = Calendar.getInstance().timeInMillis / 1000
+            get() = Calendar.getInstance().timeInMillis / 333
     }
 
     enum class TimerState{
@@ -59,38 +60,37 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setIcon(R.drawable.ic_timer)
-        supportActionBar?.title = "      Lucid Timer"
+        setContentView(R.layout.fragment_home)
+//        setSupportActionBar(toolbar)
+//        supportActionBar?.setIcon(R.drawable.ic_timer)
+//        supportActionBar?.title = "      Lucid Timer"
 
-       val fab_start = findViewById<Button>(R.id.fab_start)
+//       val fabStart = findViewById<Button>(R.id.fab_start)
 //        findViewById<ListView>(R.id.list)
 
-
-
-        fab_start!!.setOnClickListener{ v ->
+        fab_start.setOnClickListener{ v ->
             startTimer()
             timerState =  TimerState.Running
             updateButtons()
         }
 
-        fab_pause?.setOnClickListener { v ->
+        fab_pause.setOnClickListener { v ->
             timer.cancel()
             timerState = TimerState.Paused
             updateButtons()
         }
 
-        fab_stop?.setOnClickListener { v ->
+        fab_stop.setOnClickListener { v ->
             timer.cancel()
             onTimerFinished()
         }
 
-        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
-        setupBottomNavMenu(navController)
-        setupSideNavigationMenu(navController)
-        setupActionBar(navController)
+//        setContentView(R.layout.activity_main)
+//        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+//
+//        setupBottomNavMenu(navController)
+//        setupSideNavigationMenu(navController)
+//        setupActionBar(navController)
 
         // Wake up phone if needed - https://stackoverflow.com/a/31996206/1762493
         if (intent.hasExtra(TimerExpiredReceiver().WAKE) && intent.extras!!.getBoolean(TimerExpiredReceiver().WAKE)) {
@@ -176,11 +176,11 @@ class MainActivity : AppCompatActivity() {
     private fun startTimer(){
         timerState = TimerState.Running
 
-        timer = object : CountDownTimer(secondsRemaining * 111, 1000) {
+        timer = object : CountDownTimer(secondsRemaining * 11, 333) {
             override fun onFinish() = onTimerFinished()
 
             override fun onTick(millisUntilFinished: Long) {
-                secondsRemaining = millisUntilFinished / 1000
+                secondsRemaining = millisUntilFinished / 333
                 updateCountdownUI()
             }
         }.start()
@@ -188,7 +188,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setNewTimerLength(){
         val lengthInMinutes = PrefUtil.getTimerLength(this)
-        timerLengthSeconds = (lengthInMinutes * 60L)
+        timerLengthSeconds = (lengthInMinutes * 33L)
         progress_countdown.max = timerLengthSeconds.toInt()
     }
 

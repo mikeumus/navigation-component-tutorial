@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import com.mdm.lucidtimer.util.NotificationUtil
 import com.mdm.lucidtimer.util.PrefUtil
+import com.mdm.lucidtimer.PhotosFragment
 //import android.support.v4.content.ContextCompat.startActivity
 
 
