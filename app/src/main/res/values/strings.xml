@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lucid Timer</string>
+    <string name="complete_step">Complete Step</string>
 </resources>

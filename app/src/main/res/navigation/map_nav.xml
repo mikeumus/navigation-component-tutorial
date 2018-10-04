@@ -9,25 +9,32 @@
         android:id="@+id/destination_home"
         android:name="com.mdm.lucidtimer.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" >
-        <argument
-            android:name="timerNumber"
-            android:defaultValue="0"
-            app:argType="integer" />
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/destination_camera"
+        android:name="com.mdm.lucidtimer.CameraFragment"
+        android:label="Camera"
+        tools:layout="@layout/fragment_camera">
         <action
             android:id="@+id/next_action"
-            app:destination="@id/ringerFragment" />
+            app:destination="@id/destination_photos" />
     </fragment>
     <fragment
-        android:id="@+id/ringerFragment"
-        android:name="com.mdm.lucidtimer.ui.ringer.RingerFragment"
-        android:label="RingerFragment" >
+        android:id="@+id/destination_photos"
+        android:name="com.mdm.lucidtimer.PhotosFragment"
+        android:label="Photos"
+        tools:layout="@layout/fragment_photos">
         <action
             android:id="@+id/next_action"
             app:destination="@id/destination_home" />
         <argument
-            android:name="timerNumber"
+            android:name="numOfPhotos"
             android:defaultValue="0"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/destination_settings"
+        android:name="com.mdm.lucidtimer.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
