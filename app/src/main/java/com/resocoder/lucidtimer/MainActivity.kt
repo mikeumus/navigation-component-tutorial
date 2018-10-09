@@ -19,6 +19,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.appcompat.widget.AppCompatButton
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
+//import kotlinx.android.synthetic.main.ringer_fragment.*
 //import kotlinx.android.synthetic.main.activity_timer.*
 import kotlinx.android.synthetic.main.content_timer.*
 import java.util.*
@@ -93,14 +94,14 @@ class MainActivity : AppCompatActivity() {
 //        setupActionBar(navController)
 
         // Wake up phone if needed - https://stackoverflow.com/a/31996206/1762493
-        if (intent.hasExtra(TimerExpiredReceiver().WAKE) && intent.extras!!.getBoolean(TimerExpiredReceiver().WAKE)) {
-            this.window.setFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD or
-                    WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
-                    WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
-                    WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD or
-                            WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
-                            WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
-        }
+//        if (intent.hasExtra(TimerExpiredReceiver().WAKE) && intent.extras!!.getBoolean(TimerExpiredReceiver().WAKE)) {
+//            this.window.setFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD or
+//                    WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
+//                    WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
+//                    WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD or
+//                            WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
+//                            WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
+//        }
     }
 
     override fun onResume() {

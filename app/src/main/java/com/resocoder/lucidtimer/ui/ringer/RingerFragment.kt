@@ -19,10 +19,10 @@ class RingerFragment : Fragment() {
         fun newInstance() = RingerFragment()
     }
 
-    private lateinit var viewModel: RingerViewModel
+//    private lateinit var viewModel: RingerViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+                              savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.ringer_fragment, container, false)
     }
 
@@ -39,10 +39,10 @@ class RingerFragment : Fragment() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(RingerViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        viewModel = ViewModelProviders.of(this).get(RingerViewModel::class.java)
+//        // TODO: Use the ViewModel
+//    }
 
 }

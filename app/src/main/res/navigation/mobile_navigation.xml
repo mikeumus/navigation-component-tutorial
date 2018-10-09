@@ -16,12 +16,23 @@
             app:argType="integer" />
         <action
             android:id="@+id/next_action"
-            app:destination="@id/ringerFragment" />
+            app:destination="@id/ringerActivity" />
     </fragment>
+    <activity
+        android:id="@+id/ringerActivity"
+        android:name="com.mdm.lucidtimer.RingerActivity"
+        android:label="ringer_activity"
+        tools:layout="@layout/ringer_activity" >
+        <argument
+            android:name="timerNumber"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </activity>
     <fragment
         android:id="@+id/ringerFragment"
         android:name="com.mdm.lucidtimer.ui.ringer.RingerFragment"
-        android:label="RingerFragment" >
+        android:label="ringer_fragment"
+        tools:layout="@layout/ringer_fragment" >
         <action
             android:id="@+id/next_action"
             app:destination="@id/destination_home" />
